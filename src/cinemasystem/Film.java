@@ -69,12 +69,12 @@ public class Film {
     }
     
     public String toString(){
-        System.out.println("-----------------------------");
+        System.out.println("--------------------------");
         System.out.println(filmID + ": " +  title);
         for(Screening s: scrList){
             System.out.println(s);
         }
-        return " \nDirector: " + director + "\n" + description + "\n -------------------------- \n"; 
+        return " \nDirector: " + director + "\n" + description + "\n --------------------------"; 
     }
 
     public List<Screening> getScrList() {

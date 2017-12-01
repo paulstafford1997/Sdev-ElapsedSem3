@@ -22,13 +22,7 @@ public class Screening {
 
     @Temporal(TemporalType.DATE)
     private Calendar sDate;
-    
-    @ManyToMany(cascade = CascadeType.PERSIST) 
-    @JoinTable(name = "Seat",
-            joinColumns = @JoinColumn(name = "screenID"),
-            inverseJoinColumns = @JoinColumn(name = "seatID"))
-    private List<Seat> sList = new ArrayList<>();
-    
+
     public Screening(){
         
     }
@@ -37,10 +31,6 @@ public class Screening {
         this.filmID = filmID;
         this.sDate = sDate;
         this.sTime = sTime;
-        
-        for(int i=0; i < 16; i++){
-            sList.add(new Seat());
-        }
     }
 
     public int getFilmID() {
@@ -49,14 +39,6 @@ public class Screening {
 
     public void setFilmID(int filmID) {
         this.filmID = filmID;
-    }
-
-    public List<Seat> getsList() {
-        return sList;
-    }
-
-    public void setsList(List<Seat> sList) {
-        this.sList = sList;
     }
     
     public int getScreeningID() {

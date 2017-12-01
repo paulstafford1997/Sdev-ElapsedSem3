@@ -1,14 +1,20 @@
+DROP TABLE TICKET;
 DROP TABLE SCREENING;
-DROP TABLE SEAT;
+DROP TABLE BOOKING;
 DROP TABLE FILM;
+
 
 DROP sequence seat_seq;
 DROP sequence scring_seq;
 drop sequence film_seq;
+drop sequence book_seq;
+drop sequence ticket_seq;
 
 create sequence seat_seq increment by 1 start with 1;
 create sequence scring_seq increment by 1 start with 1;
 create sequence film_seq increment by 1 start with 1;
+create sequence book_seq increment by 1 start with 1;
+create sequence ticket_seq increment by 1 start with 1;
 
 CREATE TABLE FILM(
     filmID number,
@@ -16,12 +22,6 @@ CREATE TABLE FILM(
     DIRECTOR varchar2(255),
     DESCRIPTION varchar2(255),
     PRIMARY KEY (filmID)
-);
-
-CREATE TABLE SEAT(
-    seatID number,
-    status varchar2(255),
-    PRIMARY KEY (seatID)
 );
 
 CREATE TABLE SCREENING(
@@ -32,6 +32,22 @@ CREATE TABLE SCREENING(
     PRIMARY KEY(screeningID),
     FOREIGN KEY(filmID) REFERENCES film(filmID)
 );
+
+CREATE TABLE BOOKING(
+    bookingID number,
+    ticketID number,
+    PRIMARY KEY(bookingID)
+);
+
+CREATE TABLE TICKET(
+    ticketID number,
+    screeningID number,
+    popcorn varchar2(255),
+    drink varchar2(255),
+    PRIMARY KEY (ticketID),
+    FOREIGN KEY (screeningID) REFERENCES screening(screeningID)
+);
+
 
 
 INSERT INTO FILM VALUES(film_seq.nextVal, 'Inception', 'Christopher Nolan', 'A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.');

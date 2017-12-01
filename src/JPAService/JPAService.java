@@ -4,8 +4,6 @@ package JPAService;
 import cinemasystem.Film;
 import java.util.List;
 import javax.persistence.*;
-import cinemasystem.Screening;
-import java.util.Calendar;
 
 public class JPAService {
     
@@ -37,9 +35,10 @@ public class JPAService {
         em.getTransaction().commit();
     }
     
-    public void viewScreens()
-    {
-    
+    public void addFilm(Film f) {
+        em.getTransaction().begin();
+        em.persist(f);
+        em.getTransaction().commit();
     }
     
     
