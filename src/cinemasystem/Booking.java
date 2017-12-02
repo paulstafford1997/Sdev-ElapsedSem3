@@ -9,6 +9,49 @@ package cinemasystem;
  *
  * @author Kilian
  */
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Booking")
+@SuppressWarnings("SerializableClass")
 public class Booking {
+    
+    @Id
+    @Column(name="bookingID")
+    private int id;
+    
+    @ManyToMany (cascade = CascadeType.PERSIST)
+    @JoinTable(name="BOOKINGTICKET",
+    joinColumns = @JoinColumn(name="bookingID"),
+    inverseJoinColumns=@JoinColumn(name="ticketID"))
+    private List<Ticket> tlist = new ArrayList<>();
+    
+    public Booking(){
+        
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTlist(List<Ticket> tlist) {
+        this.tlist = tlist;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public List<Ticket> getTlist() {
+        return tlist;
+    }
+    
+    public String toString(){
+        String formattedString = String.format("Booking ID: %d", id);
+        return formattedString;
+    }
     
 }

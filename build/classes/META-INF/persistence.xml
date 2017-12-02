@@ -4,7 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>cinemasystem.Film</class>
     <class>cinemasystem.Screening</class>
-    <class>cinemasystem.Seat</class>
+    <class>cinemasystem.Booking</class>
+    <class>cinemasystem.Ticket</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
       <property name="javax.persistence.jdbc.user" value="hr"/>
