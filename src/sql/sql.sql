@@ -35,17 +35,26 @@ CREATE TABLE SCREENING(
 
 CREATE TABLE BOOKING(
     bookingID number,
-    ticketID number,
     PRIMARY KEY(bookingID)
 );
 
 CREATE TABLE TICKET(
     ticketID number,
     screeningID number,
-    popcorn varchar2(255),
-    drink varchar2(255),
+    popcorn boolean,
+    drink boolean,
+    seatNo number,
+    rowNo number,
     PRIMARY KEY (ticketID),
     FOREIGN KEY (screeningID) REFERENCES screening(screeningID)
+);
+
+CREATE TABLE BOOKINGTABLE(
+bookingID number,
+ticketID number,
+PRIMARY KEY (bookingID, ticketID),
+FOREIGN KEY (bookingID) REFERENCES Booking(bookingID),
+FOREIGN KEY (ticketID) REFERENCES Ticket(ticketID)
 );
 
 
