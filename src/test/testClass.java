@@ -3,6 +3,8 @@ package test;
 import JPAService.JPAService;
 import java.util.Scanner;
 import cinemasystem.Film;
+import cinemasystem.Screening;
+import java.util.Calendar;
 
 public class testClass {
     
@@ -33,7 +35,26 @@ public class testClass {
                         String desc = scanner.nextLine();
                         jpa.addFilm(new Film(title, director, desc)); 
                         break;
-                
+                case 3:
+                        System.out.println("Please select ID of the film you wish to update");
+                        jpa.viewFilmList();
+                        int selection = scanner.nextInt();
+                        System.out.println("Please enter the year");
+                        int year = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.println("Please enter the month of the screening");
+                        int month = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.println("Please enter the day of the screening");
+                        int day = scanner.nextInt();
+                        scanner.nextLine();
+                        Calendar date = Calendar.getInstance();
+                        date.set(year, month, day);
+                        System.out.println("What time? hour:minutes format");
+                        String time = scanner.nextLine();
+                        jpa.addScreening(new Screening(selection, date, time));
+                case 4:
+                        System.out.println("Please select ID of the screening you wish to update");
             }
         }
         
@@ -45,6 +66,7 @@ public class testClass {
         System.out.println("<><><| MENU |><><>");
         System.out.println("1: All movies showing");
         System.out.println("2: Add movie");
+        System.out.println("3: Create New Screening");
     }
 
     

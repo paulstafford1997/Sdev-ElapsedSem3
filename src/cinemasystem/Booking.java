@@ -10,5 +10,6 @@ package cinemasystem;
  * @author Kilian
  */
 public class Booking {
+    //needs an array list of tickets
     
 }

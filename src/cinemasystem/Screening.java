@@ -16,6 +16,7 @@ import javax.persistence.*;
 public class Screening {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "scring_seq")
     int screeningID;
     String sTime;
     int filmID;

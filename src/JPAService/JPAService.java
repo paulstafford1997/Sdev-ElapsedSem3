@@ -1,6 +1,7 @@
 
 package JPAService;
 
+import cinemasystem.Screening;
 import cinemasystem.Film;
 import java.util.List;
 import javax.persistence.*;
@@ -41,6 +42,28 @@ public class JPAService {
         em.getTransaction().commit();
     }
     
+    public void viewFilmList(){
+        em.getTransaction().begin();
+        TypedQuery<Film> q = em.createQuery("select f from Film f", Film.class);
+        List<Film> results = q.getResultList();
+        if (results.isEmpty()) 
+        {
+            System.out.println("No Films showing");
+        } 
+        else 
+        {
+            
+            for(Film f: results){
+                System.out.println(f.getFilmID() + ": " + f.getTitle());
+            }
+        }
+        em.getTransaction().commit();
+    }
     
+    public void addScreening(Screening screen) {
+        em.getTransaction().begin();
+        em.persist(screen);
+        em.getTransaction().commit();
+    }
     
 }
