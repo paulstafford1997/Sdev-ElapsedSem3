@@ -81,7 +81,6 @@ public class testClass {
                     jpa.addScreening(new Screening(selection, date, time));
                     
                 case 5:
-<<<<<<< HEAD
                         System.out.println("Please select ID of the screening you wish to update");
                         jpa.showScreenings();
                         int scrID = scanner.nextInt();
