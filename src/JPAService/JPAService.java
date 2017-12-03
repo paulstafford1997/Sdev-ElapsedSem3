@@ -154,6 +154,25 @@ public class JPAService {
         em.getTransaction().commit();
     }
         
+    public void showScreeningsByFilm(int film){
+        em.getTransaction().begin();
+        TypedQuery<Screening> q = em.createQuery("select S from Screening s WHERE s.filmID = :filmID",Screening.class);
+        q.setParameter("filmID",film);
+        List<Screening> results = q.getResultList();
+        if (results.isEmpty()) 
+        {
+            System.out.println("No Screenings available");
+        }
+        else 
+        {
+            for(Screening s: results){
+                System.out.printf("Screen ID: " + s.getScreeningID());
+                System.out.println(s);
+            }
+        }
+        em.getTransaction().commit();
+    }
+    
      
     
 }

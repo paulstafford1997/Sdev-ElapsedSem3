@@ -22,6 +22,8 @@ public class testClass {
         
         while(running){
             
+            jpa.showScreeningsByFilm(2);
+            
             printMenu();
             choice = scanner.nextInt();
             //menu code
@@ -127,6 +129,7 @@ public class testClass {
         System.out.println("4: Create New Screening");
         System.out.println("5: Update Screening");
         System.out.println("6: Delete Film");
+        System.out.println("7: Delete Screening");
     }
 
     
