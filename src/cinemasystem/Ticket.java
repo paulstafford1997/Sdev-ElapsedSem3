@@ -41,11 +41,12 @@ public class Ticket implements Serializable{
         
     }
     
-    public Ticket(boolean popcorn, boolean drink, int seatNo, int rowNo){
+    public Ticket(boolean popcorn, boolean drink, int number){
         this.popcorn = popcorn;
         this.drink = drink;
-        this.seatNo = seatNo;
-        this.rowNo = rowNo;
+        
+        seatNo = calcSeat(number);
+        rowNo = calcRow(number);
     }
     
     public void addPopcorn(){
@@ -120,6 +121,15 @@ public class Ticket implements Serializable{
 //            removeBooking(temp.get(i));
 //        }
 //    }
+    
+    public int calcRow(int number){
+        double temp = number / 8;
+        return (int)Math.ceil(temp);
+    }
+    
+    public int calcSeat(int number){
+        return number % 8;
+    }
     
     @Override
     public String toString() {
