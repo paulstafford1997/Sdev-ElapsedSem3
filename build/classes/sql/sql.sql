@@ -63,7 +63,7 @@ FOREIGN KEY (ticketID) REFERENCES Ticket(ticketID)
 INSERT INTO FILM VALUES(film_seq.nextVal, 'Inception', 'Christopher Nolan', 'A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.');
 INSERT INTO FILM VALUES(film_seq.nextVal, 'V for Vendetta', 'James McTeigue', 'In a future British tyranny, a shadowy freedom fighter, V, plots to overthrow it with the help of a young woman.');
 INSERT INTO FILM VALUES(film_seq.nextVal, 'Pulp Fiction', 'Quentin Tarantino', 'The lives of two mob hit men, a boxer, a gangsters wife, and a pair of diner bandits intertwine in four tales of violence and redemption.');
-INSERT INTO FILM VALUES(film_seq.nextVal, 'The adventures of Kilian McCool', 'Quentin Tarantino', 'Kilian McCool saves the world again because hes awesome.');
+INSERT INTO FILM VALUES(film_seq.nextVal, 'The Adventures of Kilian McCool', 'Steve Williams', 'Kilian McCool saves the world again because hes awesome.');
 
 
 INSERT INTO SCREENING VALUES(scring_seq.nextVal, 1,'6:00','10-JAN-2018', 1);

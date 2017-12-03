@@ -5,6 +5,7 @@ import cinemasystem.Screening;
 import cinemasystem.Film;
 import java.util.List;
 import javax.persistence.*;
+import java.util.Calendar;
 
 public class JPAService {
     
@@ -63,6 +64,31 @@ public class JPAService {
     public void addScreening(Screening screen) {
         em.getTransaction().begin();
         em.persist(screen);
+        em.getTransaction().commit();
+    }
+    
+    public void showScreenings(){
+        em.getTransaction().begin();
+        TypedQuery<Screening> q = em.createQuery("select S from Screening s", Screening.class);
+        List<Screening> results = q.getResultList();
+        if (results.isEmpty()) 
+        {
+            System.out.println("No Screenings available");
+        }
+        else 
+        {
+            for(Screening s: results){
+                Film f = em.find(Film.class, s.getFilmID()); //Every Screen has a film ID but not films title. search for Film Entity with that id to display films name rather than ID in the next line.
+                System.out.printf("Screen ID: " + s.getScreeningID() + " " + f.getTitle() + " ");
+                System.out.println(s);
+            }
+        }
+        em.getTransaction().commit();
+    }
+    
+    public void updateScreening(int scrID, Calendar calender, String time){
+        em.getTransaction().begin();
+        
         em.getTransaction().commit();
     }
     
