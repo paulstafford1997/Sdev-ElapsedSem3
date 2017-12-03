@@ -52,8 +52,8 @@ public class testClass {
 
                             popcorn = true;
                             drink = true;
-//                            jpa.getSeatNumber();
-//                            jpa.addTicket(new Premium(popcorn, drink, ));
+//                          jpa.getSeatNumber();
+//                          jpa.addTicket(new Premium(popcorn, drink, ));
                         }
                         else{
                          
@@ -62,7 +62,7 @@ public class testClass {
                     }
                         
                 case 4:
-                    System.out.println("Please select ID of the film you wish to update");
+                    System.out.println("Please select ID of the film you wish create a screening for");
                     jpa.viewFilmList();
                     int selection = scanner.nextInt();
                     System.out.println("Please enter the year");
@@ -98,6 +98,14 @@ public class testClass {
                         System.out.println("What time? hour:minutes format");
                         time = scanner.nextLine();
                         jpa.updateScreening(scrID, date, time);
+                case 6: 
+                        System.out.println("Please the Film ID that you want to delete");
+                        int filmID = scanner.nextInt();
+                        jpa.deleteFilm(filmID);
+                case 7: 
+                        System.out.println("Please the Screen ID that you want to delete");
+                        scrID = scanner.nextInt();
+                        jpa.deleteScreening(scrID);        
             }
         }
         
@@ -112,6 +120,7 @@ public class testClass {
         
         System.out.println("4: Create New Screening");
         System.out.println("5: Update Screening");
+        System.out.println("6: Delete Film");
     }
 
     

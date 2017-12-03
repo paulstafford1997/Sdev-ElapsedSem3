@@ -140,17 +140,20 @@ public class JPAService {
         return currSeat; //returns the current seat number before incrementation
     }
     
-        public void removeDepartment(int filmID) {
-        int size;
+    public void deleteFilm(int filmID) {
         em.getTransaction().begin();
         Film f = em.find(Film.class, filmID);
         em.remove(f);
-
-        List<Screening> results = f.getScrList();
-        for(Screening s: results){
-            em.remove(s);
-        }
         em.getTransaction().commit();
     }
+    
+    public void deleteScreening(int scrID) {
+        em.getTransaction().begin();
+        Screening s = em.find(Screening.class, scrID);
+        em.remove(s);
+        em.getTransaction().commit();
+    }
+        
+     
     
 }
