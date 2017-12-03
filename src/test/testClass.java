@@ -51,7 +51,7 @@ public class testClass {
                             boolean drink = true;
                             int seatNo = 1;
                             int rowNo=1;
-                            jpa.addTicket(new Premium(popcorn, drink, seatNo, rowNo));
+                            //jpa.addTicket(new Premium(popcorn, drink, seatNo, rowNo));
                         }
                     }
                         

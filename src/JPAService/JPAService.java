@@ -6,6 +6,7 @@ import cinemasystem.Screening;
 import cinemasystem.Film;
 import cinemasystem.Premium;
 import cinemasystem.Ticket;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import java.util.Calendar;
@@ -137,6 +138,19 @@ public class JPAService {
         em.getTransaction().commit();
         
         return currSeat; //returns the current seat number before incrementation
+    }
+    
+        public void removeDepartment(int filmID) {
+        int size;
+        em.getTransaction().begin();
+        Film f = em.find(Film.class, filmID);
+        em.remove(f);
+
+        List<Screening> results = f.getScrList();
+        for(Screening s: results){
+            em.remove(s);
+        }
+        em.getTransaction().commit();
     }
     
 }
