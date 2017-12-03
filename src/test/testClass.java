@@ -35,7 +35,7 @@ public class testClass {
                         String desc = scanner.nextLine();
                         jpa.addFilm(new Film(title, director, desc)); 
                         break;
-                case 3:
+                case 4:
                         System.out.println("Please select ID of the film you wish to update");
                         jpa.viewFilmList();
                         int selection = scanner.nextInt();
@@ -53,8 +53,9 @@ public class testClass {
                         System.out.println("What time? hour:minutes format");
                         String time = scanner.nextLine();
                         jpa.addScreening(new Screening(selection, date, time));
-                case 4:
+                case 5:
                         System.out.println("Please select ID of the screening you wish to update");
+                        jpa.viewFilms();
             }
         }
         
@@ -66,7 +67,9 @@ public class testClass {
         System.out.println("<><><| MENU |><><>");
         System.out.println("1: All movies showing");
         System.out.println("2: Add movie");
-        System.out.println("3: Create New Screening");
+        
+        System.out.println("4: Create New Screening");
+        System.out.println("5: Update Screening");
     }
 
     

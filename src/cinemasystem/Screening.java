@@ -20,6 +20,15 @@ public class Screening {
     int screeningID;
     String sTime;
     int filmID;
+    int seatCount;
+
+    public int getSeatCount() {
+        return seatCount;
+    }
+
+    public void setSeatCount(int seatCount) {
+        this.seatCount = seatCount;
+    }
 
     @Temporal(TemporalType.DATE)
     private Calendar sDate;
@@ -32,6 +41,7 @@ public class Screening {
         this.filmID = filmID;
         this.sDate = sDate;
         this.sTime = sTime;
+        
     }
 
     public int getFilmID() {

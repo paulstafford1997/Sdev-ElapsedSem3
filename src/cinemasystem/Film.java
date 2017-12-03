@@ -69,7 +69,6 @@ public class Film {
     }
     
     public String toString(){
-        System.out.println("--------------------------");
         System.out.println(filmID + ": " +  title);
         for(Screening s: scrList){
             System.out.println(s);
@@ -84,7 +83,5 @@ public class Film {
     public void setScrList(List<Screening> scrList) {
         this.scrList = scrList;
     }
-    
-    
     
 }

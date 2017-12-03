@@ -32,7 +32,7 @@ public class Ticket implements Serializable{
     private int seatNo;
     private int rowNo;
     
-    @ManyToMany(mappedBy = "blist",cascade =CascadeType.PERSIST)
+    @ManyToMany(mappedBy = "tlist",cascade =CascadeType.PERSIST)
     private List<Booking> blist = new ArrayList<>();
     
     public Ticket(){
