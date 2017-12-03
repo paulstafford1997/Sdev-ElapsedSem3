@@ -47,28 +47,17 @@ public class testClass {
                         System.out.println("Would you like a premium ticket?(1 for Yes, 0 for No):");
                         int premium = scanner.nextInt();
                         boolean popcorn;
-                            boolean drink;
+                        boolean drink;
                         if(premium == 1){
-<<<<<<< HEAD
+
                             popcorn = true;
                             drink = true;
 //                            jpa.getSeatNumber();
 //                            jpa.addTicket(new Premium(popcorn, drink, ));
                         }
                         else{
-                            
-=======
-                            boolean popcorn = true;
-                            boolean drink = true;
-<<<<<<< HEAD
-                            int seatNo = 1;
-                            int rowNo=1;
-                            //jpa.addTicket(new Premium(popcorn, drink, seatNo, rowNo));
-=======
-                            jpa.getSeatNumber(i);
-                            jpa.addTicket(new Premium(popcorn, drink, seatNo, rowNo));
->>>>>>> f591b499a8743f79c62828ef668cfe919cfbd6cf
->>>>>>> d0049a49cd89b9bd1e21339ab8510ab15fd382ff
+                         
+
                         }
                     }
                         
