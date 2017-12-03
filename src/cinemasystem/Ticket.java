@@ -104,22 +104,22 @@ public class Ticket implements Serializable{
         return blist;
     }
     
-    public void addBooking(Booking b) {
-        blist.add(b);
-        b.getTlist().add(this);
-    }
-    
-    public void removeBooking(Booking b) {
-        blist.remove(b);
-        b.getTlist().remove(this);
-    }
-    
-    public void remove() {
-        ArrayList<Booking> temp = new ArrayList<>(blist);
-        for (int i = 0; i < temp.size(); i++) {
-            removeBooking(temp.get(i));
-        }
-    }
+//    public void addBooking(Booking b) {
+//        blist.add(b);
+//        b.getTlist().add(this);
+//    }
+//    
+//    public void removeBooking(Booking b) {
+//        blist.remove(b);
+//        b.getTlist().remove(this);
+//    }
+//    
+//    public void remove() {
+//        ArrayList<Booking> temp = new ArrayList<>(blist);
+//        for (int i = 0; i < temp.size(); i++) {
+//            removeBooking(temp.get(i));
+//        }
+//    }
     
     public int calcRow(int number){
         double temp = number / 8;

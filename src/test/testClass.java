@@ -1,8 +1,10 @@
 package test;
 
 import JPAService.JPAService;
+import cinemasystem.Booking;
 import java.util.Scanner;
 import cinemasystem.Film;
+import cinemasystem.Premium;
 import cinemasystem.Screening;
 import java.util.Calendar;
 
@@ -41,11 +43,15 @@ public class testClass {
                     System.out.println("How many tickets would you like?:");
                     int numTickets = scanner.nextInt();
                     for(int i = 0; i < numTickets; i++){ 
-                        System.out.println("Ticket " + i);
+                        System.out.println("Ticket " + i+1);
                         System.out.println("Would you like a premium ticket?(1 for Yes, 0 for No):");
                         int premium = scanner.nextInt();
                         if(premium == 1){
-                            
+                            boolean popcorn = true;
+                            boolean drink = true;
+                            int seatNo = 1;
+                            int rowNo=1;
+                            jpa.addTicket(new Premium(popcorn, drink, seatNo, rowNo));
                         }
                     }
                         
