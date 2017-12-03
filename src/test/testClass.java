@@ -82,7 +82,7 @@ public class testClass {
                     System.out.println("What time? hour:minutes format");
                     String time = scanner.nextLine();
                     jpa.addScreening(new Screening(selection, date, time));
-                    
+                    break;
                 case 5:
                         System.out.println("Please select ID of the screening you wish to update");
                         jpa.showScreenings();
@@ -101,14 +101,17 @@ public class testClass {
                         System.out.println("What time? hour:minutes format");
                         time = scanner.nextLine();
                         jpa.updateScreening(scrID, date, time);
+                        break;
                 case 6: 
                         System.out.println("Please the Film ID that you want to delete");
                         int filmID = scanner.nextInt();
                         jpa.deleteFilm(filmID);
+                        break;
                 case 7: 
                         System.out.println("Please the Screen ID that you want to delete");
                         scrID = scanner.nextInt();
-                        jpa.deleteScreening(scrID);        
+                        jpa.deleteScreening(scrID);
+                        break;
             }
         }
         
