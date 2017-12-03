@@ -52,18 +52,18 @@ public class Booking {
     
     public void addTicket(Ticket t) {
         tlist.add(t);
-        t.getTlist().add(this);
+        t.getBlist().add(this);
     }
     
     public void removeTicket(Ticket t) {
-        tlist.removeTicket(b);
-        t.getTlist().remove(this);
+        tlist.remove(t);
+        t.getBlist().remove(this);
     }
     
     public void remove() {
-        ArrayList<Booking> temp = new ArrayList<>(blist);
+        ArrayList<Ticket> temp = new ArrayList<>(tlist);
         for (int i = 0; i < temp.size(); i++) {
-            removeBooking(temp.get(i));
+            removeTicket(temp.get(i));
         }
     }
     
