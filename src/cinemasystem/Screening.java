@@ -75,6 +75,7 @@ public class Screening {
     public void setsDate(Calendar sDate) {
         this.sDate = sDate;
     }
+    
 
     public String toString(){
         String fDate = String.format("%1$s %2$tB %2$td, %2$tY",
