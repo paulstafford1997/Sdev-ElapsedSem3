@@ -54,13 +54,9 @@ public class testClass {
                             Premium p1;
                             popcorn = true;
                             drink = true;
-<<<<<<< HEAD
 //                            jpa.getSeatNumber();
                             jpa.addPremium(new Premium(popcorn, drink, 5, 6));
-=======
-//                          jpa.getSeatNumber();
-//                          jpa.addTicket(new Premium(popcorn, drink, ));
->>>>>>> c9544fd9c8cab6472014e0db7512981c77103a63
+
                         }
                         else{
                          
@@ -88,7 +84,6 @@ public class testClass {
                     jpa.addScreening(new Screening(selection, date, time));
                     
                 case 5:
-<<<<<<< HEAD
                         System.out.println("Please select ID of the screening you wish to update");
                         jpa.showScreenings();
                         int scrID = scanner.nextInt();
