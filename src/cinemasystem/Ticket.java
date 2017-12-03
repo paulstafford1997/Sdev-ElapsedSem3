@@ -29,6 +29,7 @@ public class Ticket implements Serializable{
     private int tid;
     private Boolean popcorn;
     private Boolean drink;
+    private int scrID;
     private int seatNo;
     private int rowNo;
     private double cost = 12.50;
