@@ -54,8 +54,13 @@ public class testClass {
                             Premium p1;
                             popcorn = true;
                             drink = true;
+<<<<<<< HEAD
 //                            jpa.getSeatNumber();
                             jpa.addPremium(new Premium(popcorn, drink, 5, 6));
+=======
+//                          jpa.getSeatNumber();
+//                          jpa.addTicket(new Premium(popcorn, drink, ));
+>>>>>>> c9544fd9c8cab6472014e0db7512981c77103a63
                         }
                         else{
                          
@@ -64,7 +69,7 @@ public class testClass {
                     }
                         
                 case 4:
-                    System.out.println("Please select ID of the film you wish to update");
+                    System.out.println("Please select ID of the film you wish create a screening for");
                     jpa.viewFilmList();
                     int selection = scanner.nextInt();
                     System.out.println("Please enter the year");
@@ -83,23 +88,32 @@ public class testClass {
                     jpa.addScreening(new Screening(selection, date, time));
                     
                 case 5:
-                    System.out.println("Please select ID of the screening you wish to update");
-                    jpa.showScreenings();
-                    int scrID = scanner.nextInt();
-                    System.out.println("Please enter the year");
-                    year = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.println("Please enter the month of the screening");
-                    month = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.println("Please enter the day of the screening");
-                    day = scanner.nextInt();
-                    scanner.nextLine();
-                    date = Calendar.getInstance();
-                    date.set(year, month, day);
-                    System.out.println("What time? hour:minutes format");
-                    time = scanner.nextLine();
-                    jpa.updateScreening(scrID, date, time);
+<<<<<<< HEAD
+                        System.out.println("Please select ID of the screening you wish to update");
+                        jpa.showScreenings();
+                        int scrID = scanner.nextInt();
+                        System.out.println("Please enter the year");
+                        year = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.println("Please enter the month of the screening");
+                        month = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.println("Please enter the day of the screening");
+                        day = scanner.nextInt();
+                        scanner.nextLine();
+                        date = Calendar.getInstance();
+                        date.set(year, month, day);
+                        System.out.println("What time? hour:minutes format");
+                        time = scanner.nextLine();
+                        jpa.updateScreening(scrID, date, time);
+                case 6: 
+                        System.out.println("Please the Film ID that you want to delete");
+                        int filmID = scanner.nextInt();
+                        jpa.deleteFilm(filmID);
+                case 7: 
+                        System.out.println("Please the Screen ID that you want to delete");
+                        scrID = scanner.nextInt();
+                        jpa.deleteScreening(scrID);        
             }
         }
         
@@ -114,6 +128,7 @@ public class testClass {
         
         System.out.println("4: Create New Screening");
         System.out.println("5: Update Screening");
+        System.out.println("6: Delete Film");
     }
 
     
