@@ -37,7 +37,12 @@ public class testClass {
                     break;
                 
                 case 3:
-                    
+                    System.out.println("How many tickets would you like?:");
+                    int numTickets = scanner.nextInt();
+                    for(int i = 0; i < numTickets; i++){
+                        System.out.println("Ticket " + i);
+                        System.out.println("Would you like a premium ticket?:");
+                    }
                         
                 case 4:
                     System.out.println("Please select ID of the film you wish to update");

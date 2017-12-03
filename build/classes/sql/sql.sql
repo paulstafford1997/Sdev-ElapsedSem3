@@ -44,9 +44,11 @@ CREATE TABLE BOOKING(
 CREATE TABLE TICKET(
     ticketID number,
     screeningID number,
-   
+    popcorn varchar2(255),
+    drink varchar2(255),
     seatNo number,
     rowNo number,
+    cost number,
     PRIMARY KEY (ticketID),
     FOREIGN KEY (screeningID) REFERENCES screening(screeningID)
 );

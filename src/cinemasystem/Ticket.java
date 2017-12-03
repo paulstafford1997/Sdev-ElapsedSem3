@@ -31,6 +31,7 @@ public class Ticket implements Serializable{
     private Boolean drink;
     private int seatNo;
     private int rowNo;
+    private double cost;
     
     @ManyToMany(mappedBy = "tlist",cascade =CascadeType.PERSIST)
     private List<Booking> blist = new ArrayList<>();
