@@ -39,6 +39,7 @@ public class testClass {
                     break;
                 
                 case 3:
+                    Booking b1;
                     jpa.addBooking(new Booking());
                     System.out.println("How many tickets would you like?:");
                     int numTickets = scanner.nextInt();
@@ -48,12 +49,14 @@ public class testClass {
                         int premium = scanner.nextInt();
                         boolean popcorn;
                         boolean drink;
+                        int number;
                         if(premium == 1){
-
+                            Premium p1;
                             popcorn = true;
                             drink = true;
-//                          jpa.getSeatNumber();
-//                          jpa.addTicket(new Premium(popcorn, drink, ));
+//                            jpa.getSeatNumber();
+                            jpa.addPremium(new Premium(popcorn, drink, 5, 6));
+
                         }
                         else{
                          

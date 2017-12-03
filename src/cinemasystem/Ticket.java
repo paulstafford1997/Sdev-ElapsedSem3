@@ -57,6 +57,14 @@ public class Ticket implements Serializable{
         cost+=2.00;
     }
 
+    public void setScrID(int scrID) {
+        this.scrID = scrID;
+    }
+
+    public int getScrID() {
+        return scrID;
+    }
+
     public int getTid() {
         return tid;
     }
