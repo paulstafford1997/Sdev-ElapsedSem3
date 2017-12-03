@@ -26,33 +26,38 @@ public class testClass {
             switch(choice){
                 case 1: jpa.viewFilms(); break;
                 case 2:  
-                        System.out.println("Please enter the name of the film");
-                        scanner.nextLine(); //eat empty line
-                        String title = scanner.nextLine();
-                        System.out.println("Please enter the director of the film");
-                        String director = scanner.nextLine();
-                        System.out.println("Please enter a beif description of the film");
-                        String desc = scanner.nextLine();
-                        jpa.addFilm(new Film(title, director, desc)); 
-                        break;
+                    System.out.println("Please enter the name of the film");
+                    scanner.nextLine(); //eat empty line
+                    String title = scanner.nextLine();
+                    System.out.println("Please enter the director of the film");
+                    String director = scanner.nextLine();
+                    System.out.println("Please enter a beif description of the film");
+                    String desc = scanner.nextLine();
+                    jpa.addFilm(new Film(title, director, desc)); 
+                    break;
+                
+                case 3:
+                    
+                        
                 case 4:
-                        System.out.println("Please select ID of the film you wish to update");
-                        jpa.viewFilmList();
-                        int selection = scanner.nextInt();
-                        System.out.println("Please enter the year");
-                        int year = scanner.nextInt();
-                        scanner.nextLine();
-                        System.out.println("Please enter the month of the screening");
-                        int month = scanner.nextInt();
-                        scanner.nextLine();
-                        System.out.println("Please enter the day of the screening");
-                        int day = scanner.nextInt();
-                        scanner.nextLine();
-                        Calendar date = Calendar.getInstance();
-                        date.set(year, month, day);
-                        System.out.println("What time? hour:minutes format");
-                        String time = scanner.nextLine();
-                        jpa.addScreening(new Screening(selection, date, time));
+                    System.out.println("Please select ID of the film you wish to update");
+                    jpa.viewFilmList();
+                    int selection = scanner.nextInt();
+                    System.out.println("Please enter the year");
+                    int year = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Please enter the month of the screening");
+                    int month = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Please enter the day of the screening");
+                    int day = scanner.nextInt();
+                    scanner.nextLine();
+                    Calendar date = Calendar.getInstance();
+                    date.set(year, month, day);
+                    System.out.println("What time? hour:minutes format");
+                    String time = scanner.nextLine();
+                    jpa.addScreening(new Screening(selection, date, time));
+                    
                 case 5:
                         System.out.println("Please select ID of the screening you wish to update");
                         jpa.showScreenings();
@@ -71,6 +76,7 @@ public class testClass {
                         System.out.println("What time? hour:minutes format");
                         time = scanner.nextLine();
                         jpa.updateScreening(scrID, date, time);
+
                         
             }
         }
