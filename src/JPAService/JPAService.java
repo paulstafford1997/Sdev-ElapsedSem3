@@ -119,6 +119,7 @@ public class JPAService {
     
     public void addTicket(Ticket t){
         em.getTransaction().begin();
+        
         em.persist(t);
         em.getTransaction().commit();
     }
