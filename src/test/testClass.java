@@ -70,7 +70,7 @@ public class testClass {
                         date.set(year, month, day);
                         System.out.println("What time? hour:minutes format");
                         time = scanner.nextLine();
-                        
+                        jpa.updateScreening(scrID, date, time);
                         
             }
         }

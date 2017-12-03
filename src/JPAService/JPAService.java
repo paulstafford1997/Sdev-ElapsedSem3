@@ -88,7 +88,9 @@ public class JPAService {
     
     public void updateScreening(int scrID, Calendar calender, String time){
         em.getTransaction().begin();
-        
+        Screening s = em.find(Screening.class, scrID);
+        s.setsDate(calender);
+        s.setsTime(time);
         em.getTransaction().commit();
     }
     
