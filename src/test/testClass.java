@@ -37,11 +37,16 @@ public class testClass {
                     break;
                 
                 case 3:
+                    jpa.addBooking(new Booking());
                     System.out.println("How many tickets would you like?:");
                     int numTickets = scanner.nextInt();
-                    for(int i = 0; i < numTickets; i++){
+                    for(int i = 0; i < numTickets; i++){ 
                         System.out.println("Ticket " + i);
-                        System.out.println("Would you like a premium ticket?:");
+                        System.out.println("Would you like a premium ticket?(1 for Yes, 0 for No):");
+                        int premium = scanner.nextInt();
+                        if(premium == 1){
+                            
+                        }
                     }
                         
                 case 4:

@@ -50,6 +50,24 @@ public class Booking {
         return tlist;
     }
     
+    public void addTicket(Ticket t) {
+        tlist.add(t);
+        t.getTlist().add(this);
+    }
+    
+    public void removeTicket(Ticket t) {
+        tlist.removeTicket(b);
+        t.getTlist().remove(this);
+    }
+    
+    public void remove() {
+        ArrayList<Booking> temp = new ArrayList<>(blist);
+        for (int i = 0; i < temp.size(); i++) {
+            removeBooking(temp.get(i));
+        }
+    }
+    
+    
    @Override
     public String toString(){
         String formattedString = String.format("Booking ID: %d", id);

@@ -46,6 +46,14 @@ public class Ticket implements Serializable{
         this.seatNo = seatNo;
         this.rowNo = rowNo;
     }
+    
+    public void addPopcorn(){
+        cost+=3.00;
+    }
+    
+    public void addDrink(){
+        cost+=2.00;
+    }
 
     public int getTid() {
         return tid;

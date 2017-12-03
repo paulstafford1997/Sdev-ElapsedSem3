@@ -4,6 +4,7 @@ package JPAService;
 import cinemasystem.Booking;
 import cinemasystem.Screening;
 import cinemasystem.Film;
+import cinemasystem.Ticket;
 import java.util.List;
 import javax.persistence.*;
 import java.util.Calendar;
@@ -111,6 +112,12 @@ public class JPAService {
     public void addBooking(Booking b) {
         em.getTransaction().begin();
         em.persist(b);
+        em.getTransaction().commit();
+    }
+    
+    public void addTicket(Ticket t){
+        em.getTransaction().begin();
+        em.persist(t);
         em.getTransaction().commit();
     }
     
