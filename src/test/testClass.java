@@ -6,6 +6,7 @@ import java.util.Scanner;
 import cinemasystem.Film;
 import cinemasystem.Premium;
 import cinemasystem.Screening;
+import cinemasystem.Ticket;
 import java.util.Calendar;
 
 public class testClass {
@@ -41,7 +42,6 @@ public class testClass {
                     break;
                 
                 case 3:
-                    Booking b1;
                     jpa.addBooking(new Booking());
                     System.out.println("How many tickets would you like?:");
                     int numTickets = scanner.nextInt();
@@ -53,16 +53,36 @@ public class testClass {
                         boolean drink;
                         int number;
                         if(premium == 1){
-                            Premium p1;
                             popcorn = true;
                             drink = true;
-//                            jpa.getSeatNumber();
-                            jpa.addPremium(new Premium(popcorn, drink, 5, 6));
+                            System.out.println("Please select ID of the screening you wish to buy a ticket for:");
+                            jpa.showScreenings();
+                            int scrID = scanner.nextInt();
+                            jpa.addPremium(new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID));
 
                         }
                         else{
-                         
-
+                            System.out.println("Please select ID of the screening you wish to buy a ticket for:");
+                            jpa.showScreenings();
+                            int scrID = scanner.nextInt();
+                            System.out.println("Would you like popcorn?(1 for Yes, 0 for No):");
+                            int getPopcorn = scanner.nextInt();
+                            if(getPopcorn == 1){
+                                popcorn = true;
+                            }
+                            else{
+                                popcorn = false;
+                            }
+                            System.out.println("Would you like a drink?(1 for Yes, 0 for No):");
+                            int getDrink = scanner.nextInt();
+                            if(getDrink == 1){
+                                drink = true;
+                            }
+                            else{
+                                drink = false;
+                            }
+                            jpa.addTicket(new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID));
+                            
                         }
                     }
                         
