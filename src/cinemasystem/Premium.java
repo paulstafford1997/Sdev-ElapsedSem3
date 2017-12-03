@@ -12,8 +12,8 @@ package cinemasystem;
 public class Premium extends Ticket{
     private final double cost = 24.50;
     
-    public Premium(boolean popcorn, boolean drink, int number){
-        super(popcorn, drink, number);
+    public Premium(boolean popcorn, boolean drink, int number, int scrID){
+        super(popcorn, drink, number, scrID);
     }
     
     //mod 8 = rowNo divided by 8 for seatNo

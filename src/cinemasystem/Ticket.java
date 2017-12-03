@@ -41,7 +41,7 @@ public class Ticket implements Serializable{
         
     }
     
-    public Ticket(boolean popcorn, boolean drink, int number){
+    public Ticket(boolean popcorn, boolean drink, int number, int scrID){
         this.popcorn = popcorn;
         this.drink = drink;
         

@@ -46,11 +46,16 @@ public class testClass {
                         System.out.println("Ticket " + i+1);
                         System.out.println("Would you like a premium ticket?(1 for Yes, 0 for No):");
                         int premium = scanner.nextInt();
+                        boolean popcorn;
+                            boolean drink;
                         if(premium == 1){
-                            boolean popcorn = true;
-                            boolean drink = true;
-                            jpa.getSeatNumber(i);
-                            jpa.addTicket(new Premium(popcorn, drink, seatNo, rowNo));
+                            popcorn = true;
+                            drink = true;
+//                            jpa.getSeatNumber();
+//                            jpa.addTicket(new Premium(popcorn, drink, ));
+                        }
+                        else{
+                            
                         }
                     }
                         
