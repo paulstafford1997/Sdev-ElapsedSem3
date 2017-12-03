@@ -50,7 +50,7 @@ public class Booking {
         return tlist;
     }
     
-   
+   @Override
     public String toString(){
         String formattedString = String.format("Booking ID: %d", id);
         return formattedString;

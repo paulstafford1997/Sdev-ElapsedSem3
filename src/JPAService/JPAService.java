@@ -1,6 +1,7 @@
 
 package JPAService;
 
+import cinemasystem.Booking;
 import cinemasystem.Screening;
 import cinemasystem.Film;
 import java.util.List;
@@ -89,6 +90,12 @@ public class JPAService {
     public void updateScreening(int scrID, Calendar calender, String time){
         em.getTransaction().begin();
         
+        em.getTransaction().commit();
+    }
+    
+    public void addBooking(Booking b) {
+        em.getTransaction().begin();
+        em.persist(b);
         em.getTransaction().commit();
     }
     

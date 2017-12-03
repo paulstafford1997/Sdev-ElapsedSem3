@@ -68,7 +68,7 @@ public class Film {
         this.description = description;
     }
     
-
+    @Override
     public String toString(){
         System.out.println(filmID + ": " +  title);
         for(Screening s: scrList){
