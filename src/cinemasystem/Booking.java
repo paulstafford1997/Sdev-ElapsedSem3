@@ -15,12 +15,14 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name = "book_seq", initialValue = 1, allocationSize = 1)
 @Table(name = "Booking")
 @SuppressWarnings("SerializableClass")
 public class Booking {
     //needs an array list of tickets
     
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_seq")
     @Column(name="bookingID")
     private int id;
     

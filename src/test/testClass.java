@@ -40,7 +40,8 @@ public class testClass {
                     break;
                 
                 case 3:
-                    jpa.addBooking(new Booking());
+                    Booking b1 = new Booking();
+                    jpa.addBooking(b1);
                     System.out.println("How many tickets would you like?:");
                     int numTickets = scanner.nextInt();
                     for(int i = 0; i < numTickets; i++){ 
@@ -56,7 +57,8 @@ public class testClass {
                             System.out.println("Please select ID of the screening you wish to buy a ticket for:");
                             jpa.showScreenings();
                             int scrID = scanner.nextInt();
-                            jpa.addPremium(new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID));
+                            Premium p1 = new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID);
+                            jpa.addPremium(p1);
 
                         }
                         else{
@@ -79,8 +81,9 @@ public class testClass {
                             else{
                                 drink = false;
                             }
-                            jpa.addTicket(new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID));
-                            
+                            Ticket t1 = new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID);
+                            jpa.addTicket(t1);
+                            b1.addTicket(t1);
                         }
                     }
                         
@@ -140,7 +143,7 @@ public class testClass {
         System.out.println("<><><| MENU |><><>");
         System.out.println("1: All movies showing");
         System.out.println("2: Add movie");
-        
+        System.out.println("2: Create Booking and add tickets");
         System.out.println("4: Create New Screening");
         System.out.println("5: Update Screening");
         System.out.println("6: Delete Film");

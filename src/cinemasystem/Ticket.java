@@ -11,8 +11,11 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -21,10 +24,12 @@ import javax.persistence.Table;
  */
 
 @Entity
+@SequenceGenerator(name = "ticket_seq", initialValue = 1, allocationSize = 1)
 @Table(name = "Ticket")
     
 public class Ticket implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ticket_seq")
     @Column(name="ticketID")
     private int tid;
     private Boolean popcorn;
