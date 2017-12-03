@@ -76,8 +76,6 @@ public class testClass {
                         System.out.println("What time? hour:minutes format");
                         time = scanner.nextLine();
                         jpa.updateScreening(scrID, date, time);
-
-                        
             }
         }
         

@@ -114,4 +114,15 @@ public class JPAService {
         em.getTransaction().commit();
     }
     
+    public int getSeatNumber(int scrID){
+        em.getTransaction().begin();
+        Screening s = em.find(Screening.class, scrID);
+        int currSeat = s.getSeatCount();
+        
+        s.setSeatCount((currSeat + 1)); //increments seatNumber for screening
+        em.getTransaction().commit();
+        
+        return currSeat; //returns the current seat number before incrementation
+    }
+    
 }
