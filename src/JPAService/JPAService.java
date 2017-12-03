@@ -89,8 +89,27 @@ public class JPAService {
     
     public void updateScreening(int scrID, Calendar calender, String time){
         em.getTransaction().begin();
-        
+        Screening s = em.find(Screening.class, scrID);
+        s.setsDate(calender);
+        s.setsTime(time);
         em.getTransaction().commit();
+    }
+    
+    public boolean isScreeningFull(int scrID){
+        boolean temp;
+        
+        em.getTransaction().begin();
+        Screening s = em.find(Screening.class, scrID);
+        if(s.getSeatCount() < 64){
+            temp = true;
+        }
+        else
+        {
+            temp = false;
+        }
+        em.getTransaction().commit();
+        
+        return temp;
     }
     
     public void addBooking(Booking b) {
