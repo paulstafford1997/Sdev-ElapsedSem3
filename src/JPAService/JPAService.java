@@ -96,16 +96,12 @@ public class JPAService {
     }
     
     public boolean isScreeningFull(int scrID){
-        boolean temp;
+        boolean temp = false;
         
         em.getTransaction().begin();
         Screening s = em.find(Screening.class, scrID);
         if(s.getSeatCount() < 64){
             temp = true;
-        }
-        else
-        {
-            temp = false;
         }
         em.getTransaction().commit();
         

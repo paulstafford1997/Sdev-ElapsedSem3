@@ -5,9 +5,8 @@ package cinemasystem;
  *
  * @author Kilian
  */
-import java.util.ArrayList;
+
 import java.util.Calendar;
-import java.util.List;
 import javax.persistence.*;
 
 @Entity
