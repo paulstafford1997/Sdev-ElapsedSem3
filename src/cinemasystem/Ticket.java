@@ -34,10 +34,11 @@ public class Ticket implements Serializable{
     private int tid;
     private Boolean popcorn;
     private Boolean drink;
-    private int scrID;
+    private int screeningID;
     private int seatNo;
     private int rowNo;
-    private double cost = 12.50;
+    private double cost;
+    
     
     @ManyToMany(mappedBy = "tlist",cascade =CascadeType.PERSIST)
     private List<Booking> blist = new ArrayList<>();
@@ -46,9 +47,11 @@ public class Ticket implements Serializable{
         
     }
     
-    public Ticket(boolean popcorn, boolean drink, int number, int scrID){
+    public Ticket(boolean popcorn, boolean drink, int number, int scrID, double cost){
         this.popcorn = popcorn;
         this.drink = drink;
+        this.screeningID = scrID;
+        this.cost = cost;
         
         seatNo = calcSeat(number);
         rowNo = calcRow(number);
@@ -63,11 +66,11 @@ public class Ticket implements Serializable{
     }
 
     public void setScrID(int scrID) {
-        this.scrID = scrID;
+        this.screeningID = scrID;
     }
 
     public int getScrID() {
-        return scrID;
+        return screeningID;
     }
 
     public int getTid() {

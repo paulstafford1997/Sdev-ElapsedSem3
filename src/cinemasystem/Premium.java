@@ -16,10 +16,9 @@ import javax.persistence.SequenceGenerator;
 
 
 public class Premium extends Ticket{
-    private final double cost = 24.50;
     
-    public Premium(boolean popcorn, boolean drink, int number, int scrID){
-        super(popcorn, drink, number, scrID);
+    public Premium(boolean popcorn, boolean drink, int number, int scrID, double cost){
+        super(popcorn, drink, number, scrID, cost);
     }
     
     //mod 8 = rowNo divided by 8 for seatNo

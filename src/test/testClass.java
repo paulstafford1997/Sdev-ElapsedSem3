@@ -65,7 +65,8 @@ public class testClass {
                             jpa.showScreeningsByFilm(selection);
                             System.out.println("Please pick a screening: ");
                             int scrID = scanner.nextInt();
-                            Premium p1 = new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID);
+                            double cost = 24.50;
+                            Premium p1 = new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID, cost);
                             jpa.addPremium(p1);
                             b1.addTicket(p1);
 
@@ -93,7 +94,8 @@ public class testClass {
                             else{
                                 drink = false;
                             }
-                            Ticket t1 = new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID);
+                            double cost = 12.50;
+                            Ticket t1 = new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID, cost);
                             jpa.addTicket(t1);
                             b1.addTicket(t1);
                         }
