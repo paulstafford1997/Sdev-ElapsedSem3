@@ -29,7 +29,10 @@ public class testClass {
             choice = scanner.nextInt();
             //menu code
             switch(choice){
-                case 1: jpa.viewFilms(); break;
+                case 1: 
+                    jpa.viewFilms(); 
+                    break;
+                    
                 case 2:  
                     System.out.println("Please enter the name of the film");
                     scanner.nextLine(); //eat empty line
@@ -56,16 +59,23 @@ public class testClass {
                         if(premium == 1){
                             popcorn = true;
                             drink = true;
-                            System.out.println("Please select ID of the screening you wish to buy a ticket for:");
-                            jpa.showScreenings();
+                            jpa.viewFilmList();
+                            System.out.println("Please pick a movie: ");
+                            int selection = scanner.nextInt();
+                            jpa.showScreeningsByFilm(selection);
+                            System.out.println("Please pick a screening: ");
                             int scrID = scanner.nextInt();
                             Premium p1 = new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID);
                             jpa.addPremium(p1);
+                            b1.addTicket(p1);
 
                         }
                         else{
-                            System.out.println("Please select ID of the screening you wish to buy a ticket for:");
-                            jpa.showScreenings();
+                            jpa.viewFilmList();
+                            System.out.println("Please pick a movie: ");
+                            int selection = scanner.nextInt();
+                            jpa.showScreeningsByFilm(selection);
+                            System.out.println("Please pick a screening: ");
                             int scrID = scanner.nextInt();
                             System.out.println("Would you like popcorn?(1 for Yes, 0 for No):");
                             int getPopcorn = scanner.nextInt();
@@ -148,7 +158,7 @@ public class testClass {
         System.out.println("<><><| MENU |><><>");
         System.out.println("1: All movies showing");
         System.out.println("2: Add movie");
-        System.out.println("2: Create Booking and add tickets");
+        System.out.println("3: Create Booking and add tickets");
         System.out.println("4: Create New Screening");
         System.out.println("5: Update Screening");
         System.out.println("6: Delete Film");
