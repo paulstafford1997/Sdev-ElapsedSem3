@@ -131,7 +131,7 @@ public class Ticket implements Serializable{
 //    }
     
     public int calcRow(int number){
-        double temp = number / 8;
+        double temp = (double)number / 8;
         return (int)Math.ceil(temp);
     }
     
