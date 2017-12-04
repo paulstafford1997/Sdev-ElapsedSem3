@@ -11,8 +11,11 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -21,18 +24,20 @@ import javax.persistence.Table;
  */
 
 @Entity
+@SequenceGenerator(name = "ticket_seq", initialValue = 1, allocationSize = 1)
 @Table(name = "Ticket")
     
 public class Ticket implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ticket_seq")
     @Column(name="ticketID")
     private int tid;
     private Boolean popcorn;
     private Boolean drink;
-    private int scrID;
+    private int screeningID;
     private int seatNo;
     private int rowNo;
-    private double cost = 12.50;
+    private double cost;
     
     @ManyToMany(mappedBy = "tlist",cascade =CascadeType.PERSIST)
     private List<Booking> blist = new ArrayList<>();
@@ -44,6 +49,7 @@ public class Ticket implements Serializable{
     public Ticket(boolean popcorn, boolean drink, int number, int scrID){
         this.popcorn = popcorn;
         this.drink = drink;
+        this.screeningID = scrID;
         
         seatNo = calcSeat(number);
         rowNo = calcRow(number);
@@ -58,11 +64,11 @@ public class Ticket implements Serializable{
     }
 
     public void setScrID(int scrID) {
-        this.scrID = scrID;
+        this.screeningID = scrID;
     }
 
     public int getScrID() {
-        return scrID;
+        return screeningID;
     }
 
     public int getTid() {

@@ -22,14 +22,15 @@ public class testClass {
         int choice;
         
         while(running){
-            
-            jpa.showScreeningsByFilm(2);
-            
+
             printMenu();
             choice = scanner.nextInt();
             //menu code
             switch(choice){
-                case 1: jpa.viewFilms(); break;
+                case 1: 
+                    jpa.viewFilms(); 
+                    break;
+                    
                 case 2:  
                     System.out.println("Please enter the name of the film");
                     scanner.nextLine(); //eat empty line
@@ -42,11 +43,12 @@ public class testClass {
                     break;
                 
                 case 3:
-                    jpa.addBooking(new Booking());
+                    Booking b1 = new Booking();
+                    jpa.addBooking(b1);
                     System.out.println("How many tickets would you like?:");
                     int numTickets = scanner.nextInt();
                     for(int i = 0; i < numTickets; i++){ 
-                        System.out.println("Ticket " + i+1);
+                        System.out.println("Ticket " + (i+1));
                         System.out.println("Would you like a premium ticket?(1 for Yes, 0 for No):");
                         int premium = scanner.nextInt();
                         boolean popcorn;
@@ -55,15 +57,23 @@ public class testClass {
                         if(premium == 1){
                             popcorn = true;
                             drink = true;
-                            System.out.println("Please select ID of the screening you wish to buy a ticket for:");
-                            jpa.showScreenings();
+                            jpa.viewFilmList();
+                            System.out.println("Please pick a movie: ");
+                            int selection = scanner.nextInt();
+                            jpa.showScreeningsByFilm(selection);
+                            System.out.println("Please pick a screening: ");
                             int scrID = scanner.nextInt();
-                            jpa.addPremium(new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID));
+                            Premium p1 = new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID);
+                            jpa.addPremium(p1);
+                            b1.addTicket(p1);
 
                         }
                         else{
-                            System.out.println("Please select ID of the screening you wish to buy a ticket for:");
-                            jpa.showScreenings();
+                            jpa.viewFilmList();
+                            System.out.println("Please pick a movie: ");
+                            int selection = scanner.nextInt();
+                            jpa.showScreeningsByFilm(selection);
+                            System.out.println("Please pick a screening: ");
                             int scrID = scanner.nextInt();
                             System.out.println("Would you like popcorn?(1 for Yes, 0 for No):");
                             int getPopcorn = scanner.nextInt();
@@ -81,11 +91,12 @@ public class testClass {
                             else{
                                 drink = false;
                             }
-                            jpa.addTicket(new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID));
-                            
+                            Ticket t1 = new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID);
+                            jpa.addTicket(t1);
+                            jpa.addTicketToBooking(b1.getId(), t1.getTid());
                         }
                     }
-                        
+                    break;
                 case 4:
                     System.out.println("Please select ID of the film you wish create a screening for");
                     jpa.viewFilmList();
@@ -145,7 +156,7 @@ public class testClass {
         System.out.println("<><><| MENU |><><>");
         System.out.println("1: All movies showing");
         System.out.println("2: Add movie");
-        
+        System.out.println("3: Create Booking and add tickets");
         System.out.println("4: Create New Screening");
         System.out.println("5: Update Screening");
         System.out.println("6: Delete Film");
