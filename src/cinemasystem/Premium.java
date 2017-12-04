@@ -5,10 +5,16 @@
  */
 package cinemasystem;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
+
 /**
  *
  * @author pauls
  */
+
+
 public class Premium extends Ticket{
     private final double cost = 24.50;
     
