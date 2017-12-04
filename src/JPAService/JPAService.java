@@ -25,7 +25,7 @@ public class JPAService {
     public void viewFilms()
     {
     em.getTransaction().begin();
-        TypedQuery<Film> q = em.createQuery("select f from Film f", Film.class);
+        TypedQuery<Film> q = em.createQuery("select f from Film f order by f.filmID", Film.class);
         List<Film> results = q.getResultList();
         if (results.isEmpty()) 
         {
@@ -49,7 +49,7 @@ public class JPAService {
     
     public void viewFilmList(){
         em.getTransaction().begin();
-        TypedQuery<Film> q = em.createQuery("select f from Film f", Film.class);
+        TypedQuery<Film> q = em.createQuery("select f from Film f order by f.filmID", Film.class);
         List<Film> results = q.getResultList();
         if (results.isEmpty()) 
         {
@@ -73,7 +73,7 @@ public class JPAService {
     
     public void showScreenings(){
         em.getTransaction().begin();
-        TypedQuery<Screening> q = em.createQuery("select S from Screening s", Screening.class);
+        TypedQuery<Screening> q = em.createQuery("select S from Screening s order by s.screeningID", Screening.class);
         List<Screening> results = q.getResultList();
         if (results.isEmpty()) 
         {

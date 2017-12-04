@@ -139,13 +139,15 @@ public class testClass {
                     break;
                     
                 case 6: 
-                    System.out.println("Please the Film ID that you want to delete");
+                    jpa.viewFilmList();
+                    System.out.println("Please enter the Film ID that you want to delete");
                     int filmID = scanner.nextInt();
                     jpa.deleteFilm(filmID);
                     break;
                     
-                case 7: 
-                    System.out.println("Please the Screen ID that you want to delete");
+                case 7:
+                    jpa.showScreenings();
+                    System.out.println("Please enter the Screen ID that you want to delete");
                     scrID = scanner.nextInt();
                     jpa.deleteScreening(scrID);
                     break;
