@@ -38,7 +38,10 @@ public class Ticket implements Serializable{
     private int seatNo;
     private int rowNo;
     private double cost;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 581157ca9c8f671c0c2c93cf3122d3c035143ed5
     
     @ManyToMany(mappedBy = "tlist",cascade =CascadeType.PERSIST)
     private List<Booking> blist = new ArrayList<>();
@@ -51,7 +54,10 @@ public class Ticket implements Serializable{
         this.popcorn = popcorn;
         this.drink = drink;
         this.screeningID = scrID;
+<<<<<<< HEAD
         this.cost = cost;
+=======
+>>>>>>> 581157ca9c8f671c0c2c93cf3122d3c035143ed5
         
         seatNo = calcSeat(number);
         rowNo = calcRow(number);
@@ -139,7 +145,7 @@ public class Ticket implements Serializable{
 //    }
     
     public int calcRow(int number){
-        double temp = number / 8;
+        double temp = (double)number / 8;
         return (int)Math.ceil(temp);
     }
     

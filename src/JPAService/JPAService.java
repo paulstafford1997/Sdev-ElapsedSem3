@@ -173,6 +173,13 @@ public class JPAService {
         em.getTransaction().commit();
     }
     
+    public void addTicketToBooking(int bookingID, int ticketID) {
+        em.getTransaction().begin();
+        Ticket t = em.find(Ticket.class, ticketID);
+        Booking b = em.find(Booking.class, bookingID);
+        b.addTicket(t);
+        em.getTransaction().commit();
+    }
      
     
 }

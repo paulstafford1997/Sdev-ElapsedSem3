@@ -22,9 +22,7 @@ public class testClass {
         int choice;
         
         while(running){
-            
-            jpa.showScreeningsByFilm(2);
-            
+
             printMenu();
             choice = scanner.nextInt();
             //menu code
@@ -97,10 +95,10 @@ public class testClass {
                             double cost = 12.50;
                             Ticket t1 = new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID, cost);
                             jpa.addTicket(t1);
-                            b1.addTicket(t1);
+                            jpa.addTicketToBooking(b1.getId(), t1.getTid());
                         }
                     }
-                        
+                    break;
                 case 4:
                     System.out.println("Please select ID of the film you wish create a screening for");
                     jpa.viewFilmList();
