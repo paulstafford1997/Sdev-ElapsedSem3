@@ -4,7 +4,6 @@ import JPAService.JPAService;
 import cinemasystem.Booking;
 import java.util.Scanner;
 import cinemasystem.Film;
-import cinemasystem.Premium;
 import cinemasystem.Screening;
 import cinemasystem.Ticket;
 import java.util.Calendar;
@@ -49,54 +48,35 @@ public class testClass {
                     int numTickets = scanner.nextInt();
                     for(int i = 0; i < numTickets; i++){ 
                         System.out.println("Ticket " + (i+1));
-                        System.out.println("Would you like a premium ticket?(1 for Yes, 0 for No):");
-                        int premium = scanner.nextInt();
                         boolean popcorn;
                         boolean drink;
-                        int number;
-                        if(premium == 1){
+                        int number;            
+                        jpa.viewFilmList();
+                        System.out.println("Please pick a movie: ");
+                        int selection = scanner.nextInt();
+                        jpa.showScreeningsByFilm(selection);
+                        System.out.println("Please pick a screening: ");
+                        int scrID = scanner.nextInt();
+                        System.out.println("Would you like popcorn?(1 for Yes, 0 for No):");
+                        int getPopcorn = scanner.nextInt();
+                        if(getPopcorn == 1){
                             popcorn = true;
-                            drink = true;
-                            jpa.viewFilmList();
-                            System.out.println("Please pick a movie: ");
-                            int selection = scanner.nextInt();
-                            jpa.showScreeningsByFilm(selection);
-                            System.out.println("Please pick a screening: ");
-                            int scrID = scanner.nextInt();
-                            double cost = 24.50;
-                            Premium p1 = new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID, cost);
-                            jpa.addPremium(p1);
-                            b1.addTicket(p1);
-
                         }
                         else{
-                            jpa.viewFilmList();
-                            System.out.println("Please pick a movie: ");
-                            int selection = scanner.nextInt();
-                            jpa.showScreeningsByFilm(selection);
-                            System.out.println("Please pick a screening: ");
-                            int scrID = scanner.nextInt();
-                            System.out.println("Would you like popcorn?(1 for Yes, 0 for No):");
-                            int getPopcorn = scanner.nextInt();
-                            if(getPopcorn == 1){
-                                popcorn = true;
-                            }
-                            else{
-                                popcorn = false;
-                            }
-                            System.out.println("Would you like a drink?(1 for Yes, 0 for No):");
-                            int getDrink = scanner.nextInt();
-                            if(getDrink == 1){
-                                drink = true;
-                            }
-                            else{
-                                drink = false;
-                            }
-                            double cost = 12.50;
-                            Ticket t1 = new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID, cost);
-                            jpa.addTicket(t1);
-                            jpa.addTicketToBooking(b1.getId(), t1.getTid());
+                            popcorn = false;
                         }
+                        System.out.println("Would you like a drink?(1 for Yes, 0 for No):");
+                        int getDrink = scanner.nextInt();
+                        if(getDrink == 1){
+                            drink = true;
+                        }
+                        else{
+                            drink = false;
+                        }
+                        double cost = 12.50;
+                        Ticket t1 = new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID, cost);
+                        jpa.addTicket(t1);
+                        jpa.addTicketToBooking(b1.getId(), t1.getTid());
                         System.out.println("Thank you! Your booking reference is: " + b1.getId());
                     }
                     break;
@@ -152,6 +132,15 @@ public class testClass {
                     scrID = scanner.nextInt();
                     jpa.deleteScreening(scrID);
                     break;
+                    
+                case 8:
+                    System.out.println("Please enter your booking reference number: ");
+                    int option = scanner.nextInt();
+                    jpa.showBookingReference(option);
+                    break;
+                
+                case 9:
+                    running = false;
             }
         }
         
@@ -169,6 +158,7 @@ public class testClass {
         System.out.println("6: Delete Film");
         System.out.println("7: Delete Screening");
         System.out.println("8: Show Booking");
+        System.out.println("9: Exit");
     }
 
     
