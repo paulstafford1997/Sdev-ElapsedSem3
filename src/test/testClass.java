@@ -37,7 +37,7 @@ public class testClass {
                     String title = scanner.nextLine();
                     System.out.println("Please enter the director of the film");
                     String director = scanner.nextLine();
-                    System.out.println("Please enter a beif description of the film");
+                    System.out.println("Please enter a brief description of the film");
                     String desc = scanner.nextLine();
                     jpa.addFilm(new Film(title, director, desc)); 
                     break;
