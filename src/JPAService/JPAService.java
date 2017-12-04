@@ -151,6 +151,8 @@ public class JPAService {
         em.getTransaction().begin();
         Screening s = em.find(Screening.class, scrID);
         em.remove(s);
+        
+        
         em.getTransaction().commit();
     }
         
@@ -180,6 +182,20 @@ public class JPAService {
         b.addTicket(t);
         em.getTransaction().commit();
     }
+    
+    public void showBookingReference(int bookingID){
+        em.getTransaction().begin();
+        Booking b = em.find(Booking.class, bookingID);
+            List<Ticket> tlist = b.getTlist(); //get all the tickets in the booking
+                for(Ticket t: tlist){
+                    Screening s = em.find(Screening.class, t.getScrID()); //gets screening from ticket
+                    Film f = em.find(Film.class, s.getFilmID()); // gets Film from screening
+                    System.out.println(f.getTitle()); // gets title from film
+                    System.out.println(t);
+                }
+        em.getTransaction().commit();
+    }
+    
      
     
 }

@@ -31,7 +31,7 @@ public class testClass {
                     jpa.viewFilms(); 
                     break;
                     
-                case 2:  
+                case 2: 
                     System.out.println("Please enter the name of the film");
                     scanner.nextLine(); //eat empty line
                     String title = scanner.nextLine();
@@ -95,6 +95,7 @@ public class testClass {
                             jpa.addTicket(t1);
                             jpa.addTicketToBooking(b1.getId(), t1.getTid());
                         }
+                        System.out.println("Thank you! Your booking reference is: " + b1.getId());
                     }
                     break;
                 case 4:
@@ -140,12 +141,17 @@ public class testClass {
                         int filmID = scanner.nextInt();
                         jpa.deleteFilm(filmID);
                         break;
-                case 7: 
+                case 7:
                         System.out.println("Please the Screen ID that you want to delete");
                         scrID = scanner.nextInt();
                         jpa.deleteScreening(scrID);
                         break;
-            }
+                case 8:
+                                                                                  System.out.println("Please enter booking reference");
+                                                                                  selection = scanner.nextInt();
+                                                                                  jpa.showBookingReference(selection);
+                
+            }   
         }
         
         System.out.println("Goodbye");
@@ -161,6 +167,7 @@ public class testClass {
         System.out.println("5: Update Screening");
         System.out.println("6: Delete Film");
         System.out.println("7: Delete Screening");
+        System.out.println("8: Show Booking");
     }
 
     

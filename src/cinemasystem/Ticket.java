@@ -147,7 +147,7 @@ public class Ticket implements Serializable{
     
     @Override
     public String toString() {
-        String formattedString = String.format(" Ticket ID: %d, Popcorn: %b, Drink: %b, Seat No: %d, Row No: %d", tid, popcorn, drink, seatNo, rowNo);
+        String formattedString = String.format("Seat No: %d, Row No: %d, Popcorn: %b Drink: %b", seatNo, rowNo, popcorn, drink);
         return formattedString;
     }
 }

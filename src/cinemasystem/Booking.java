@@ -73,6 +73,9 @@ public class Booking {
    @Override
     public String toString(){
         String formattedString = String.format("Booking ID: %d", id);
+        for(Ticket t : tlist){
+            System.out.println(t);
+        }
         return formattedString;
     }
     
