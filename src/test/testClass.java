@@ -37,7 +37,7 @@ public class testClass {
                     String title = scanner.nextLine();
                     System.out.println("Please enter the director of the film");
                     String director = scanner.nextLine();
-                    System.out.println("Please enter a beif description of the film");
+                    System.out.println("Please enter a brief description of the film");
                     String desc = scanner.nextLine();
                     jpa.addFilm(new Film(title, director, desc)); 
                     break;
@@ -63,7 +63,8 @@ public class testClass {
                             jpa.showScreeningsByFilm(selection);
                             System.out.println("Please pick a screening: ");
                             int scrID = scanner.nextInt();
-                            Premium p1 = new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID);
+                            double cost = 24.50;
+                            Premium p1 = new Premium(popcorn, drink, jpa.getSeatNumber(scrID), scrID, cost);
                             jpa.addPremium(p1);
                             b1.addTicket(p1);
 
@@ -91,7 +92,8 @@ public class testClass {
                             else{
                                 drink = false;
                             }
-                            Ticket t1 = new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID);
+                            double cost = 12.50;
+                            Ticket t1 = new Ticket(popcorn, drink, jpa.getSeatNumber(scrID), scrID, cost);
                             jpa.addTicket(t1);
                             jpa.addTicketToBooking(b1.getId(), t1.getTid());
                         }
@@ -118,40 +120,39 @@ public class testClass {
                     jpa.addScreening(new Screening(selection, date, time));
                     break;
                 case 5:
-                        System.out.println("Please select ID of the screening you wish to update");
-                        jpa.showScreenings();
-                        int scrID = scanner.nextInt();
-                        System.out.println("Please enter the year");
-                        year = scanner.nextInt();
-                        scanner.nextLine();
-                        System.out.println("Please enter the month of the screening");
-                        month = scanner.nextInt();
-                        scanner.nextLine();
-                        System.out.println("Please enter the day of the screening");
-                        day = scanner.nextInt();
-                        scanner.nextLine();
-                        date = Calendar.getInstance();
-                        date.set(year, month, day);
-                        System.out.println("What time? hour:minutes format");
-                        time = scanner.nextLine();
-                        jpa.updateScreening(scrID, date, time);
-                        break;
+                    System.out.println("Please select ID of the screening you wish to update");
+                    jpa.showScreenings();
+                    int scrID = scanner.nextInt();
+                    System.out.println("Please enter the year");
+                    year = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Please enter the month of the screening");
+                    month = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Please enter the day of the screening");
+                    day = scanner.nextInt();
+                    scanner.nextLine();
+                    date = Calendar.getInstance();
+                    date.set(year, month, day);
+                    System.out.println("What time? hour:minutes format");
+                    time = scanner.nextLine();
+                    jpa.updateScreening(scrID, date, time);
+                    break;
+                    
                 case 6: 
-                        System.out.println("Please the Film ID that you want to delete");
-                        int filmID = scanner.nextInt();
-                        jpa.deleteFilm(filmID);
-                        break;
+                    jpa.viewFilmList();
+                    System.out.println("Please enter the Film ID that you want to delete");
+                    int filmID = scanner.nextInt();
+                    jpa.deleteFilm(filmID);
+                    break;
+                    
                 case 7:
-                        System.out.println("Please the Screen ID that you want to delete");
-                        scrID = scanner.nextInt();
-                        jpa.deleteScreening(scrID);
-                        break;
-                case 8:
-                                                                                  System.out.println("Please enter booking reference");
-                                                                                  selection = scanner.nextInt();
-                                                                                  jpa.showBookingReference(selection);
-                
-            }   
+                    jpa.showScreenings();
+                    System.out.println("Please enter the Screen ID that you want to delete");
+                    scrID = scanner.nextInt();
+                    jpa.deleteScreening(scrID);
+                    break;
+            }
         }
         
         System.out.println("Goodbye");
